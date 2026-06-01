@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>ORKS Service | Ремонт мотоциклов в Капитоновке</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,14 @@
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
+        }
+
+        /* мобильные отступы */
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 16px;
+            }
         }
 
         .header {
@@ -36,7 +43,7 @@
             top: 0;
             z-index: 100;
             border-bottom: 1px solid #2c2c2c;
-            padding: 16px 0;
+            padding: 14px 0;
         }
 
         .header-content {
@@ -44,11 +51,25 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 12px;
+        }
+
+        @media (max-width: 860px) {
+            .header-content {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .nav {
+                justify-content: center;
+            }
+            .header-contacts {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
         }
 
         .logo h1 {
-            font-size: 1.9rem;
+            font-size: 1.7rem;
             font-weight: 800;
             letter-spacing: -0.5px;
             background: linear-gradient(135deg, #e4b363, #ff7e05);
@@ -56,23 +77,44 @@
             background-clip: text;
             color: transparent;
         }
+        @media (max-width: 640px) {
+            .logo h1 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+        }
         .logo p {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: #aaa;
             letter-spacing: 1px;
+        }
+        @media (max-width: 640px) {
+            .logo p {
+                text-align: center;
+            }
         }
 
         .nav {
             display: flex;
-            gap: 28px;
+            gap: 20px;
             flex-wrap: wrap;
+            justify-content: center;
+        }
+        @media (max-width: 560px) {
+            .nav {
+                gap: 14px;
+            }
+            .nav a {
+                font-size: 0.85rem;
+            }
         }
         .nav a {
             color: #ddd;
             text-decoration: none;
             font-weight: 500;
             transition: 0.2s;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            padding: 5px 0;
         }
         .nav a:hover {
             color: #ff8c2e;
@@ -80,22 +122,25 @@
 
         .header-contacts {
             display: flex;
-            gap: 24px;
+            gap: 16px;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
             font-weight: 600;
         }
         .header-contacts a {
             color: #ffb347;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         .btn-call {
             background: #e05a1a;
-            padding: 8px 18px;
+            padding: 6px 16px;
             border-radius: 40px;
             color: white !important;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: 0.2s;
+            white-space: nowrap;
         }
         .btn-call:hover {
             background: #c44a0f;
@@ -104,29 +149,45 @@
 
         .hero {
             background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=2070&auto=format') center/cover no-repeat;
-            padding: 100px 0 120px;
+            padding: 60px 0 80px;
             text-align: center;
         }
+        @media (max-width: 640px) {
+            .hero {
+                padding: 50px 0 60px;
+            }
+        }
         .hero h2 {
-            font-size: 3.2rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 640px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
         }
         .hero h2 span {
             color: #ff8c2e;
             border-bottom: 3px solid #ff8c2e;
         }
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1rem;
             max-width: 700px;
-            margin: 0 auto 32px;
+            margin: 0 auto 24px;
             color: #ccc;
+            padding: 0 16px;
+        }
+        @media (max-width: 640px) {
+            .hero p {
+                font-size: 0.9rem;
+            }
         }
         .btn-primary {
             background: #ff7b1c;
             border: none;
-            padding: 14px 36px;
-            font-size: 1.1rem;
+            padding: 12px 32px;
+            font-size: 1rem;
             font-weight: 700;
             border-radius: 50px;
             color: #0a0a0a;
@@ -135,58 +196,74 @@
             display: inline-block;
             text-decoration: none;
         }
-        .btn-primary:hover {
-            background: #e0670c;
-            transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(255,123,28,0.3);
+        @media (max-width: 640px) {
+            .btn-primary {
+                padding: 12px 28px;
+                font-size: 0.95rem;
+            }
         }
 
         .section {
-            padding: 80px 0;
+            padding: 60px 0;
+        }
+        @media (max-width: 640px) {
+            .section {
+                padding: 45px 0;
+            }
         }
         .section-title {
-            font-size: 2.4rem;
+            font-size: 2rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 640px) {
+            .section-title {
+                font-size: 1.6rem;
+            }
         }
         .section-sub {
             text-align: center;
             color: #b0b0b0;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+            padding: 0 16px;
         }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 24px;
+        }
+        @media (max-width: 640px) {
+            .services-grid {
+                gap: 20px;
+            }
         }
         .service-card {
             background: #141414;
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
             transition: 0.25s;
             border: 1px solid #252525;
         }
-        .service-card:hover {
-            transform: translateY(-6px);
-            border-color: #ff8c2e40;
-            box-shadow: 0 20px 30px -12px black;
-        }
         .service-img {
-            height: 200px;
+            height: 190px;
             background-size: cover;
             background-position: center;
         }
         .service-card h3 {
-            font-size: 1.6rem;
-            margin: 20px 20px 12px;
+            font-size: 1.4rem;
+            margin: 18px 18px 10px;
         }
         .service-card p {
-            margin: 0 20px 20px;
+            margin: 0 18px 16px;
             color: #bcbcbc;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
         .price-tag {
-            margin: 0 20px 20px;
+            margin: 0 18px 20px;
             font-weight: 700;
             color: #ff9f4a;
             font-size: 1.2rem;
@@ -199,21 +276,35 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 30px;
-            margin-top: 40px;
+            gap: 20px;
+            margin-top: 30px;
         }
         .feature {
             flex: 1;
-            min-width: 200px;
+            min-width: 180px;
             text-align: center;
             background: #111;
-            padding: 30px 20px;
-            border-radius: 32px;
+            padding: 24px 16px;
+            border-radius: 24px;
+        }
+        @media (max-width: 640px) {
+            .feature {
+                min-width: 100%;
+                padding: 20px;
+            }
         }
         .feature i {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #ff8c2e;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+        }
+        .feature h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .feature p {
+            font-size: 0.85rem;
+            color: #aaa;
         }
 
         .about {
@@ -222,79 +313,107 @@
         .about-inner {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 30px;
             align-items: center;
         }
         .about-text {
             flex: 1;
         }
         .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 18px;
+        }
+        @media (max-width: 640px) {
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
         }
         .about-text p {
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             color: #cacaca;
+            font-size: 0.95rem;
         }
 
         .form-area {
             background: #111111;
-            border-radius: 36px;
-            padding: 40px;
+            border-radius: 28px;
+            padding: 30px 24px;
             max-width: 700px;
             margin: 0 auto;
             text-align: center;
             border: 1px solid #2a2a2a;
         }
+        @media (max-width: 640px) {
+            .form-area {
+                padding: 24px 18px;
+            }
+            .form-area h3 {
+                font-size: 1.5rem !important;
+            }
+        }
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
         .input-group input, .input-group textarea {
             width: 100%;
-            padding: 14px 20px;
+            padding: 14px 18px;
             background: #1e1e1e;
             border: 1px solid #333;
-            border-radius: 60px;
+            border-radius: 50px;
             color: white;
-            font-size: 1rem;
+            font-size: 0.95rem;
             outline: none;
             transition: 0.2s;
         }
         .input-group textarea {
-            border-radius: 24px;
+            border-radius: 20px;
             resize: vertical;
-        }
-        .input-group input:focus, .input-group textarea:focus {
-            border-color: #ff8c2e;
         }
         .btn-submit {
             background: #ff7b1c;
             border: none;
-            padding: 12px 30px;
-            border-radius: 60px;
+            padding: 12px 28px;
+            border-radius: 50px;
             font-weight: bold;
             color: black;
             cursor: pointer;
             font-size: 1rem;
+            width: 100%;
+            max-width: 250px;
+        }
+        @media (max-width: 640px) {
+            .btn-submit {
+                max-width: 100%;
+                padding: 14px;
+            }
         }
 
         .contacts-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 40px;
+            gap: 20px;
             margin-top: 30px;
         }
         .contact-item {
             background: #131313;
-            padding: 20px 28px;
+            padding: 14px 22px;
             border-radius: 50px;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        @media (max-width: 560px) {
+            .contact-item {
+                width: 100%;
+                justify-content: center;
+            }
         }
         .contact-item i {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #ffa34d;
         }
         .contact-item a {
@@ -302,24 +421,26 @@
             color: inherit;
         }
 
+        iframe {
+            width: 100%;
+            height: 280px;
+            border-radius: 20px;
+        }
+        @media (max-width: 640px) {
+            iframe {
+                height: 220px;
+            }
+        }
+
         footer {
             background: #030303;
             text-align: center;
-            padding: 32px 0;
+            padding: 28px 16px;
             border-top: 1px solid #222;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
         }
-
-        @media (max-width: 800px) {
-            .header-content {
-                flex-direction: column;
-            }
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            .section-title {
-                font-size: 1.9rem;
-            }
+        footer p {
+            margin-bottom: 6px;
         }
     </style>
 </head>
@@ -388,7 +509,7 @@
     </section>
 
     <section class="features">
-        <div class="container" style="padding: 60px 0;">
+        <div class="container" style="padding: 50px 0;">
             <h2 class="section-title">Почему выбирают нас?</h2>
             <div class="features-wrap">
                 <div class="feature"><i class="fas fa-motorcycle"></i><h4>Специализация</h4><p>Только мотоциклы: от Харлеев до японских спортбайков</p></div>
@@ -412,8 +533,8 @@
     <section id="order" class="section">
         <div class="container">
             <div class="form-area">
-                <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Оставить заявку</h3>
-                <p>Опишите проблему, и мы свяжемся с вами в течение 1-2 дней</p>
+                <h3 style="font-size: 1.6rem; margin-bottom: 10px;">Оставить заявку</h3>
+                <p style="margin-bottom: 20px;">Опишите проблему, и мы свяжемся с вами в течение 1-2 дней</p>
                 <form id="requestForm">
                     <div class="input-group">
                         <input type="text" placeholder="Ваше имя" id="name" required>
@@ -425,9 +546,9 @@
                         <textarea rows="3" placeholder="Марка мотоцикла, вид работ (кузовной ремонт, покраска и т.д.)" id="message"></textarea>
                     </div>
                     <button type="submit" class="btn-submit">Отправить заявку <i class="fas fa-paper-plane"></i></button>
-                    <p style="font-size: 0.7rem; margin-top: 15px;">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
+                    <p style="font-size: 0.65rem; margin-top: 14px;">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
                 </form>
-                <div id="formMessage" style="margin-top: 12px; color: #ffaa55;"></div>
+                <div id="formMessage" style="margin-top: 14px; color: #ffaa55; font-size: 0.9rem;"></div>
             </div>
         </div>
     </section>
@@ -436,15 +557,15 @@
         <div class="container">
             <h2 class="section-title">Контакты</h2>
             <div class="contacts-grid">
-                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> с. Капитоновка (52.185527, 70.131587)</div>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> с. Капитоновка</div>
                 <div class="contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+77470306470">8 747 030 6470</a></div>
                 <div class="contact-item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77470306470">WhatsApp</a></div>
             </div>
-            <div style="text-align: center; margin-top: 30px;">
-                <iframe width="100%" height="350" style="border:0; border-radius: 24px;" loading="lazy" 
+            <div style="text-align: center; margin-top: 28px;">
+                <iframe width="100%" height="300" style="border:0; border-radius: 20px;" loading="lazy" 
                     src="https://yandex.ru/map-widget/v1/?ll=70.131587,52.185527&z=17&pt=70.131587,52.185527&what=map">
                 </iframe>
-                <p style="font-size: 12px; margin-top: 8px;">📍 Точное местоположение сервиса: 52.185527, 70.131587</p>
+                <p style="font-size: 11px; margin-top: 8px;">📍 Точное местоположение: 52.185527, 70.131587</p>
             </div>
         </div>
     </section>
@@ -452,23 +573,20 @@
 
 <footer>
     <div class="container">
-        <p>© 2025 ORKS Service — Профессиональный ремонт мотоциклов в с. Капитоновка. Кузовной ремонт, покраска, диагностика.</p>
-        <p style="margin-top: 8px;"><i class="fas fa-wrench"></i> Только мотоциклы. Гарантия на все работы.</p>
+        <p>© 2025 ORKS Service — Профессиональный ремонт мотоциклов в с. Капитоновка</p>
+        <p><i class="fas fa-wrench"></i> Только мотоциклы. Гарантия на все работы.</p>
     </div>
 </footer>
 
 <script>
-    // ========== НАСТРОЙКА TELEGRAM ==========
     const TELEGRAM_BOT_TOKEN = '8851813715:AAHDVRIBMrbFeoXRWAfDRYD55g3ywMUXTno';
     const TELEGRAM_CHAT_ID = '7645590880';
-    // =========================================
     
     const form = document.getElementById('requestForm');
     const msgDiv = document.getElementById('formMessage');
 
     async function sendToTelegram(name, phone, message) {
         const text = `🟠 НОВАЯ ЗАЯВКА С САЙТА ORKS Service 🟠%0A%0A👤 Имя: ${name}%0A📞 Телефон: ${phone}%0A📝 Сообщение: ${message || 'не указано'}%0A%0A🕐 Время: ${new Date().toLocaleString()}`;
-        
         const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${text}`;
         
         try {
@@ -500,11 +618,11 @@
         const sent = await sendToTelegram(name, phone, message);
         
         if (sent) {
-            msgDiv.innerHTML = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
+            msgDiv.innerHTML = '✅ Заявка отправлена! Мы свяжемся с вами.';
             msgDiv.style.color = '#aaffaa';
             form.reset();
         } else {
-            msgDiv.innerHTML = '❌ Ошибка отправки. Пожалуйста, позвоните нам или попробуйте позже.';
+            msgDiv.innerHTML = '❌ Ошибка. Позвоните нам, пожалуйста.';
             msgDiv.style.color = '#ff8866';
         }
         
