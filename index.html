@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ORKS Service | Ремонт мотоциклов в Капитоновке</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            background: #000000cc;
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #2c2c2c;
+            padding: 16px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #e4b363, #ff7e05);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo p {
+            font-size: 0.8rem;
+            color: #aaa;
+            letter-spacing: 1px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav a:hover {
+            color: #ff8c2e;
+        }
+
+        .header-contacts {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            font-weight: 600;
+        }
+        .header-contacts a {
+            color: #ffb347;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .btn-call {
+            background: #e05a1a;
+            padding: 8px 18px;
+            border-radius: 40px;
+            color: white !important;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .btn-call:hover {
+            background: #c44a0f;
+            transform: scale(0.98);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=2070&auto=format') center/cover no-repeat;
+            padding: 100px 0 120px;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .hero h2 span {
+            color: #ff8c2e;
+            border-bottom: 3px solid #ff8c2e;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            color: #ccc;
+        }
+        .btn-primary {
+            background: #ff7b1c;
+            border: none;
+            padding: 14px 36px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            color: #0a0a0a;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            background: #e0670c;
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(255,123,28,0.3);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section-sub {
+            text-align: center;
+            color: #b0b0b0;
+            margin-bottom: 50px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: #141414;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.25s;
+            border: 1px solid #252525;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #ff8c2e40;
+            box-shadow: 0 20px 30px -12px black;
+        }
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin: 20px 20px 12px;
+        }
+        .service-card p {
+            margin: 0 20px 20px;
+            color: #bcbcbc;
+        }
+        .price-tag {
+            margin: 0 20px 20px;
+            font-weight: 700;
+            color: #ff9f4a;
+            font-size: 1.2rem;
+        }
+
+        .features {
+            background: #0c0c0c;
+        }
+        .features-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            background: #111;
+            padding: 30px 20px;
+            border-radius: 32px;
+        }
+        .feature i {
+            font-size: 2.5rem;
+            color: #ff8c2e;
+            margin-bottom: 16px;
+        }
+
+        .about {
+            background: linear-gradient(95deg, #0e0e0e 0%, #050505 100%);
+        }
+        .about-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-text {
+            flex: 1.4;
+        }
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .about-text p {
+            margin-bottom: 18px;
+            color: #cacaca;
+        }
+        .about-img {
+            flex: 1;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .form-area {
+            background: #111111;
+            border-radius: 36px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid #2a2a2a;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group input, .input-group textarea {
+            width: 100%;
+            padding: 14px 20px;
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 60px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+        }
+        .input-group textarea {
+            border-radius: 24px;
+            resize: vertical;
+        }
+        .input-group input:focus, .input-group textarea:focus {
+            border-color: #ff8c2e;
+        }
+        .btn-submit {
+            background: #ff7b1c;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .contacts-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .contact-item {
+            background: #131313;
+            padding: 20px 28px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #ffa34d;
+        }
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        footer {
+            background: #030303;
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid #222;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 800px) {
+            .header-content {
+                flex-direction: column;
+            }
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <h1>ORKS Service</h1>
+            <p>MOTO EXPERT • С 2026 ГОДА</p>
+        </div>
+        <div class="nav">
+            <a href="#home">ГЛАВНАЯ</a>
+            <a href="#about">О КОМПАНИИ</a>
+            <a href="#services">УСЛУГИ И ЦЕНЫ</a>
+            <a href="#contacts">КОНТАКТЫ</a>
+        </div>
+        <div class="header-contacts">
+            <a href="tel:+77470306470"><i class="fas fa-phone-alt"></i> 8 747 030 6470</a>
+            <a href="tel:+87714688941">8 771 468 8941</a>
+            <a href="#order" class="btn-call">ОСТАВИТЬ ЗАЯВКУ</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>РЕМОНТ <span>МОТОЦИКЛОВ</span></h2>
+            <p>В сервисе ORKS Service наш мастер выполняет даже самый сложный кузовной ремонт <strong>любых марок мотоциклов</strong> — от спортбайков до чопперов и эндуро.</p>
+            <a href="#order" class="btn-primary">ПОДРОБНЕЕ</a>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">УСЛУГИ И ЦЕНЫ</h2>
+            <p class="section-sub">Профессиональный ремонт, покраска, диагностика и тюнинг мотоциклов</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=600&auto=format');"></div>
+                    <h3>Кузовной ремонт</h3>
+                    <p>Правка облицовок, бензобаков, пластика, восстановление геометрии рамы.</p>
+                    <div class="price-tag">от 1 000 ₸</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1532470814032-d453b1b2cd73?w=600&auto=format');"></div>
+                    <h3>Покраска & аэрография</h3>
+                    <p>Любые цвета, матовые и глянцевые покрытия, уникальный дизайн.</p>
+                    <div class="price-tag">от 3 500 ₸</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=600&auto=format');"></div>
+                    <h3>Диагностика двигателя</h3>
+                    <p>Компьютерная и механика, ремонт ДВС, замена масла, цепи, свечей.</p>
+                    <div class="price-tag">от 5 000 ₸</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1568616389075-7ec27e747c9a?w=600&auto=format');"></div>
+                    <h3>Подвеска и тормоза</h3>
+                    <p>Обслуживание вилок, амортизаторов, замена тормозных дисков и колодок.</p>
+                    <div class="price-tag">от 6 500 ₸</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container" style="padding: 60px 0;">
+            <h2 class="section-title">Почему выбирают нас?</h2>
+            <div class="features-wrap">
+                <div class="feature"><i class="fas fa-motorcycle"></i><h4>Специализация</h4><p>Только мотоциклы: от Харлеев до японских спортбайков</p></div>
+                <div class="feature"><i class="fas fa-tools"></i><h4>Оборудование</h4><p>Профессиональный инструмент и стенды</p></div>
+                <div class="feature"><i class="fas fa-clock"></i><h4>Быстро & качественно</h4><p>Соблюдаем сроки, гарантия на все виды работ до 12 месяцев</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container about-inner">
+            <div class="about-text">
+                <h3>О компании ORKS Service</h3>
+                <p>Мы работаем с 2026 года и полностью переключились на <strong>ремонт и реставрацию мотоциклов</strong>. Наш мастер — профессионал с большим опытом. Выполняем кузовной ремонт любой сложности, покраску, сварку алюминиевых рам, восстановление после ДТП.</p>
+                <p>ORKS Service — это не просто сервис, а место, где мотоцикл обретает вторую жизнь. Работаем со всеми марками: BMW, Suzuki, Kawasaki, Yamaha, Honda, Ducati, Triumph, KTM, Harley-Davidson и другие.</p>
+                <p><strong>📍 Точная локация: 52.185527, 70.131587 (с. Капитоновка)</strong> — удобная локация, доступная цена, индивидуальный подход.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://placehold.co/600x800/2a2a2a/ff8c2e?text=Фото+мастера" alt="Мастер ORKS Service">
+            </div>
+        </div>
+    </section>
+
+    <section id="order" class="section">
+        <div class="container">
+            <div class="form-area">
+                <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Оставить заявку</h3>
+                <p>Опишите проблему, и мы свяжемся с вами в течение 1-2 дней</p>
+                <form id="requestForm">
+                    <div class="input-group">
+                        <input type="text" placeholder="Ваше имя" id="name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" placeholder="Номер телефона *" id="phone" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea rows="3" placeholder="Марка мотоцикла, вид работ (кузовной ремонт, покраска и т.д.)" id="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Отправить заявку <i class="fas fa-paper-plane"></i></button>
+                    <p style="font-size: 0.7rem; margin-top: 15px;">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
+                </form>
+                <div id="formMessage" style="margin-top: 12px; color: #ffaa55;"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="section" style="padding-top: 20px;">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contacts-grid">
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> с. Капитоновка (52.185527, 70.131587)</div>
+                <div class="contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+77470306470">8 747 030 6470</a></div>
+                <div class="contact-item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77470306470">WhatsApp</a></div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <iframe width="100%" height="350" style="border:0; border-radius: 24px;" loading="lazy" 
+                    src="https://yandex.ru/map-widget/v1/?ll=70.131587,52.185527&z=17&pt=70.131587,52.185527&what=map">
+                </iframe>
+                <p style="font-size: 12px; margin-top: 8px;">📍 Точное местоположение сервиса: 52.185527, 70.131587</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 ORKS Service — Профессиональный ремонт мотоциклов в с. Капитоновка. Кузовной ремонт, покраска, диагностика.</p>
+        <p style="margin-top: 8px;"><i class="fas fa-wrench"></i> Только мотоциклы. Гарантия на все работы.</p>
+    </div>
+</footer>
+
+<script>
+    // ========== НАСТРОЙКА TELEGRAM (ГОТОВО) ==========
+    const TELEGRAM_BOT_TOKEN = '8851813715:AAHDVRIBMrbFeoXRWAfDRYD55g3ywMUXTno';
+    const TELEGRAM_CHAT_ID = '7645590880';
+    // ===============================================
+    
+    const form = document.getElementById('requestForm');
+    const msgDiv = document.getElementById('formMessage');
+
+    async function sendToTelegram(name, phone, message) {
+        const text = `🟠 НОВАЯ ЗАЯВКА С САЙТА ORKS Service 🟠%0A%0A👤 Имя: ${name}%0A📞 Телефон: ${phone}%0A📝 Сообщение: ${message || 'не указано'}%0A%0A🕐 Время: ${new Date().toLocaleString()}`;
+        
+        const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${text}`;
+        
+        try {
+            const response = await fetch(url);
+            const result = await response.json();
+            return result.ok;
+        } catch (error) {
+            console.error('Ошибка отправки в Telegram:', error);
+            return false;
+        }
+    }
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        if (!name || !phone) {
+            msgDiv.innerHTML = '❌ Пожалуйста, укажите имя и телефон для связи.';
+            msgDiv.style.color = '#ff8866';
+            return;
+        }
+        
+        msgDiv.innerHTML = '⏳ Отправка заявки...';
+        msgDiv.style.color = '#ffaa55';
+        
+        const sent = await sendToTelegram(name, phone, message);
+        
+        if (sent) {
+            msgDiv.innerHTML = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
+            msgDiv.style.color = '#aaffaa';
+            form.reset();
+        } else {
+            msgDiv.innerHTML = '❌ Ошибка отправки. Пожалуйста, позвоните нам или попробуйте позже.';
+            msgDiv.style.color = '#ff8866';
+        }
+        
+        setTimeout(() => {
+            if (msgDiv.innerHTML.includes('Заявка отправлена')) {
+                msgDiv.innerHTML = '';
+            }
+        }, 5000);
+    });
+</script>
+</body>
+</html>
